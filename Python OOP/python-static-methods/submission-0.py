@@ -1,0 +1,20 @@
+class CurrencyConverter:
+    rates = {  
+        'EUR': 1.20,  # 1 EUR = 1.20 USD
+        'JPY': 0.01   # 1 JPY = 0.01 USD
+    } # Class attribute
+
+    # TODO: Implement the static method `to_usd`
+    @staticmethod
+    def to_usd(amount, currency_code):
+        if currency_code not in CurrencyConverter.rates.keys():
+            raise ValueError
+        elif currency_code == 'EUR':
+            return 1.20 * amount
+        else:
+            return amount * 0.01
+        
+    
+
+print(f"100 EUR = {CurrencyConverter.to_usd(100, 'EUR')} USD")     # 120 USD
+print(f"100 JPY = {CurrencyConverter.to_usd(100, 'JPY')} USD")     # 1 USD
